@@ -39,14 +39,13 @@
   /* border-bottom: 1px solid transparent; */
   border-bottom: 1px solid #ddd;
 
-  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: var(--transition);
 
   &.has-border {
     background-color: white;
-    /* border-bottom-color: rgba(19,21,23,0.08); */
-    /* border-color: #ddd; */
-  }
+    border-color: #ddd;
+  } */
 }
 .header-container {
   position: relative;

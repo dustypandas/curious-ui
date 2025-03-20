@@ -7,13 +7,14 @@ import IconLocation from './assets/icon-map-marker-outline.svg?react';
 import IconContact from './assets/icon-email-outline.svg?react';
 
 function CommunityPage() {
-  const [hasScrolled, setHasScrolled] = useState(false);
+  // const [hasScrolled, setHasScrolled] = useState(false);
   const [hasScrolledMuch, setHasScrolledMuch] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setHasScrolled(window.scrollY > 5);
-      setHasScrolledMuch(window.scrollY > 300); // 362 height of header area
+      // setHasScrolled(window.scrollY > 5);
+      setHasScrolledMuch(window.scrollY > 240); // 274 height of header area
     });
+    // add effect resize to set scroll distance based on header height
   }, []);
 
   const exampleEvent = {
@@ -71,7 +72,8 @@ function CommunityPage() {
   return (
     <>
       <div className='page-bg'></div>
-      <header className={`header-wrapper${!!hasScrolled ? ' has-border' : ''}`}>
+      <header className='header-wrapper'>
+      {/* <header className={`header-wrapper${!!hasScrolled ? ' has-border' : ''}`}> */}
         <div className='header-container'>
           <a href='/' className='header-logo__link'>
             <div className='header-logo'></div>
