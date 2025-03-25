@@ -37,6 +37,9 @@ html, body {
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: var(--transition);
 }
+b, strong {
+  font-weight: 500;
+}
 .gm-link {
   display: flex;
   gap: 0.25rem; /* for icons */
@@ -336,7 +339,7 @@ h3 {
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
-  min-width: 360px;
+  /* min-width: 360px; */
 }
 .column-main {
   flex: 1;

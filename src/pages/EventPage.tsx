@@ -113,7 +113,7 @@ export function EventPage() {
                 />
                 <div className='event-community__header-title-container'>
                   <div className='event-community__header-title-label'>
-                    Organized by
+                    Created by
                   </div>
                   <div className='event-community__header-title-name gm-animated gm-link__label'>
                     {event.community.name}
@@ -154,6 +154,25 @@ export function EventPage() {
                 </a>
               </div>
             </div>
+            {/* <div className='event-sidebar__section-container'>
+              <div className='event-sidebar__section-title'>
+                {event.attendees.count} attendees
+              </div>
+              <div className='event-sidebar__attendees-label'>
+                <div className='event-attendances__attendees-img-container'>
+                  {event.attendees.profiles.map((img, index) => (
+                    <img
+                      className='event-attendances__attendee-img'
+                      src={img}
+                      style={{zIndex: 20-index}}
+                    />
+                  ))}
+                </div>
+                <div className='event-attendances__attendees-label'>
+                  {`John Darwin, Maria M, and ${event.attendees.count} others are going`}
+                </div>
+              </div>
+            </div> */}
             {/* Tags */}
             {/* <div className='event-sidebar__section-container'>
               <div className='event-sidebar__section-title'>
@@ -191,7 +210,7 @@ export function EventPage() {
                 </div>
                 <div className='event-intro__attribute-details-container'>
                   <div className='event-intro__attribute-details-row'>
-                    Exact address visible to attendees
+                    Exact address visible for attendees
                   </div>
                   <div className='event-intro__attribute-details-row'>
                     Palacio, Madrid
@@ -204,41 +223,90 @@ export function EventPage() {
             <div className='card-container'>
               <div className='card-container__header'>
                 <div className='card-container__header-label'>
-                  {event.attendees.count} Attending
+                  Attend
                 </div>
               </div>
               <div className='card-container__body event-actions__container'>
-                <div className='event-attendances__attendees'>
-                  <div className='event-attendances__attendees-img-container'>
-                    {event.attendees.profiles.map((img, index) => (
-                      <img
-                        className='event-attendances__attendee-img'
-                        src={img}
-                        style={{zIndex: 20-index}}
-                      />
-                    ))}
+                <div className='event-actions__left-container'>
+                  <div className='event-attendances__attendees'>
+                    <div className='event-attendances__attendees-img-container'>
+                      {event.attendees.profiles.map((img, index) => (
+                        <img
+                          className='event-attendances__attendee-img'
+                          src={img}
+                          style={{zIndex: 20-index}}
+                        />
+                      ))}
+                    </div>
+                    <div className='event-attendances__attendees-label'>
+                      {`+${event.attendees.count} others are going`}
+                    </div>
                   </div>
-                  <div className='event-attendances__attendees-label'>
-                    {`+${event.attendees.count} others`}
-                    {/* 27 attendees */}
-                  </div>
-                </div>
-                <div className='event-actions__actions-container'>
                   <div className='event-actions__pricing-label'>
                     Free
+                    {/* Private, €15 */}
                   </div>
-                  <a href='#' className='gm-link-btn gm-primary event-actions__primary-btn'>
-                    Join event
-                    {/* Join waitlist */}
-                  </a>
                 </div>
+                <a href='#' className='gm-link-btn gm-primary event-actions__primary-btn'>
+                  Join event
+                  {/* Join waitlist */}
+                </a>
               </div>
             </div>
           </div>
-          <div className='event-description'>
+          {/* <div className='event-attendance' style={{
+            display: 'none'
+          }}>
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
+              alignItems: 'center',
+            }}>
+              <img
+                style={{
+                  display: 'block',
+                  borderRadius: '100%',
+                  width: '2.5rem',
+                  height: '2.5rem',
+                }}
+                src={event.attendees.profiles.slice(0, 1).pop()}
+              />
+              <div>
+                <div style={{
+                  fontSize: '14px',
+                  // fontWeight: 500,
+                  color: 'rgba(0, 15, 58, 0.64)',
+                }}>
+                  Hosted by
+                </div>
+                <div>
+                  <span style={{ fontWeight: 500 }}>Achi J</span>
+                  and 2 others
+                </div>
+              </div>
+            </div>
+          </div> */}
+          {/* <div className='event-description__section-container'>
+            <div className='event-description__title'>
+              Hosted by
+            </div>
+            <div className='event-description__hosts-container'>
+              <a href='#' className='event-description__host-row'>
+                <img
+                  className='event-description__host-img'
+                  src={event.attendees.profiles[0]}
+                />
+                <div className='event-description__host-label'>
+                  <strong>Achi J</strong> and 3 others
+                </div>
+              </a>
+            </div>
+          </div> */}
+          <div className='event-description__section-container'>
             <div className='event-description__title'>
               About event
             </div>
+            {/* <h3>About event</h3> */}
             <div className='event-description__content'>
               <p>
                 5 Speakers, 5 minute presentations, 5 diverse topics! 🙌⚡️
@@ -273,12 +341,12 @@ export function EventPage() {
               <p>
                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
               </p>
-              <h3>
+              {/* <h3>
                 1914 translation by H. Rackham
               </h3>
               <p>
                 "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
