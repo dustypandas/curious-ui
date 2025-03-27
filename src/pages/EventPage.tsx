@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import IconLocation from '../assets/icon-map-marker-outline.svg?react';
+import { PageFooter, PageHeader } from './_components';
 import './event-page.css';
 
 export function EventPage() {
@@ -26,7 +27,7 @@ export function EventPage() {
     title: 'Lightning Talks @ Maria Pandora',
     location: 'Palacio',
     ratings: {
-      rating: 4.3,
+      rating: 4.7,
       count: 313,
     },
     attendees: {
@@ -45,41 +46,12 @@ export function EventPage() {
     },
   };
 
-  return (<>
+  return (<div className='event-page'>
     <div className='page-bg'>
       <div className='page-bg__solid'></div>
       <div className='page-bg__gradient'></div>
     </div>
-    <header className='header-wrapper subtle'>
-    {/* <header className={`header-wrapper${!!hasScrolled ? ' has-border' : ''}`}> */}
-      <div className='header-container'>
-        <a href='/' className='header-logo__link'>
-          <div className='header-logo'></div>
-        </a>
-        <div className='header-right'>
-          <a
-            href='/events'
-            className='header__explore-events gm-link gm-animated header-link'
-            style={{ height: '1.5rem' }}
-          >
-            <span className='gm-link__label'>Explore Events</span>
-            <span className='gm-link__icon'>
-              <svg style={{ width: '1rem', height: '1rem', verticalAlign: 'middle' }} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M7 17 17 7M7 7h10v10"></path>
-              </svg>
-            </span>
-          </a>
-          <a
-            href='/sign-in'
-            className='header__sign-in gm-link-btn gm-animated header-link-btn'
-          >
-            <span className='gm-link-btn__label'>
-              Sign In
-            </span>
-          </a>
-        </div>
-      </div>
-    </header>
+    <PageHeader isSubtle={true} />
     <section className='section-container event-content'>
       <div className='width-container columns-layout'>
         <div className='event-content-left column-left'>
@@ -303,10 +275,10 @@ export function EventPage() {
             </div>
           </div> */}
           <div className='event-description__section-container'>
-            <div className='event-description__title'>
+            {/* <div className='event-description__title'>
               About event
-            </div>
-            {/* <h3>About event</h3> */}
+            </div> */}
+            <h3>About event</h3>
             <div className='event-description__content'>
               <p>
                 5 Speakers, 5 minute presentations, 5 diverse topics! 🙌⚡️
@@ -353,7 +325,7 @@ export function EventPage() {
       </div>
     </section>
 
-    <section className={`section-container event-actions-bottom${!!hasScrolledNearEnd ? '' : ' has-border'}`}>
+    {/* <section className={`section-container event-actions-bottom${!!hasScrolledNearEnd ? '' : ' has-border'}`}>
       <div className='width-container columns-layout'>
         <div style={{ flex: 1 }}>
           {event.title}
@@ -361,19 +333,11 @@ export function EventPage() {
         <div>
           <a href='#' className='gm-link-btn gm-primary event-actions__primary-btn'>
             Join event
-            {/* Join waitlist */}
+            Join waitlist
           </a>
         </div>
       </div>
-    </section>
-    <footer className='width-container footer-wrapper'>
-      <div className='footer-container'>
-        <a href='#' className='footer-link gm-link-btn gm-animated'>
-          <div className='footer-link__label'>
-            Build your own community in Madrid @gentle
-          </div>
-        </a>
-      </div>
-    </footer>
-  </>);
+    </section> */}
+    <PageFooter />
+  </div>);
 }

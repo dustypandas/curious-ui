@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+.footer-wrapper {
+  border-top: 1px solid #ddd;
+  padding: 1rem 0 2rem;
+}
+.footer-container {
+  text-align: center;
+}
+.footer-link {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  background: none !important;
+
+  /* &:hover {
+    background: rgba(17, 44, 89, 0.04);
+  } */
+}
+.footer-link__label {
+  /* text-align: center; */
+  /* padding-bottom: 0; */
+  /* margin-bottom: -0.5rem; */
+  /* background: linear-gradient(45deg, #6e2fe3, #0cabf7, #e27417, #1f6f05); */
+  background: linear-gradient(45deg, #6699FF, #E477FF, #ffcc99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  mix-blend-mode: multiply;
+  -webkit-filter: saturate(2);
+  filter: saturate(2);
+  /* line-height: 1em; */
+}

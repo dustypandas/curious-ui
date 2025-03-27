@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+.header-wrapper {
+  position: relative;
+  /* position: fixed; */
+  width: 100%;
+  /* background: transparent; */
+  background: white;
+  /* background: #e1dbeb; */
+  /* background: rgba(160, 118, 194, 0.2); */
+  /* background: rgba(255, 255, 255, 0.6); */
+  /* backdrop-filter: blur(16px); */
+  z-index: 200;
+  /* border-bottom: 1px solid transparent; */
+  border-bottom: 1px solid #ddd;
+
+  /* &.has-border {
+    background-color: white;
+    border-color: #ddd;
+  } */
+
+  &.is-sticky {
+    position: sticky;
+    top: 0;
+  }
+  &.is-subtle {
+    background: none;
+    border-bottom: 1px solid transparent;
+  }
+}
+.header-container {
+  position: relative;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  z-index: 200;
+  display: flex;
+  gap: 0.5rem;
+}
+.header-logo__link {
+  display: block;
+  text-decoration: none;
+  margin-bottom: -6.5rem;
+}
+.header-logo {
+  background: url('../../assets/logo-gentle-v2.svg') left center no-repeat;
+  background-size: contain;
+  width: 8rem;
+  height: 2.5rem;
+}
+.header-right {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  /* margin-top: -0.3125rem; align with left logo */
+}
+.header-link {
+  font-size: var(--font-size-sm);
+  border-radius: var(--link-border-radius);
+  color: var(--nav-link-color);
+
+  &:hover {
+    color: var(--nav-link-hover-color);
+  }
+}
+.header-link-btn {
+  /* display: block; */
+  font-size: var(--font-size-sm);
+  line-height: var(--font-size-sm);
+  /* border-radius: calc(var(--font-size-sm)/2 + var(--link-btn-padding-vertical)); */
+  /* margin: -4px 0; */
+}

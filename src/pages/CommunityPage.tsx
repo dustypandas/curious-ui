@@ -5,12 +5,21 @@ import IconRatings from '../assets/icon-star-outline.svg?react';
 import IconLocation from '../assets/icon-map-marker-outline.svg?react';
 import IconContact from '../assets/icon-email-outline.svg?react';
 import './community-page.css';
+import {
+  PageFooter,
+  PageHeader,
+} from './_components';
 
 export function CommunityPage() {
-  // const [hasScrolled, setHasScrolled] = useState(false);
+  const [hasScrolledLittle, setHasScrolledLittle] = useState(false);
   const [hasScrolledMuch, setHasScrolledMuch] = useState(false);
   useEffect(() => {
     window.addEventListener('scroll', () => {
+      // set hasScrolledLittle
+      const hasScrolledLittleCalc = window.scrollY > 10;
+      if (hasScrolledLittleCalc !== hasScrolledLittle) {
+        setHasScrolledLittle(hasScrolledLittleCalc);
+      }
       // set hasScrolledMuch
       const hasScrolledMuchCalc = window.scrollY > 240; // 274 height of header area
       if (hasScrolledMuchCalc !== hasScrolledMuch) {
@@ -18,13 +27,14 @@ export function CommunityPage() {
       }
     });
     // add effect resize to set scroll distance based on header height
-  }, [hasScrolledMuch]);
+  }, [hasScrolledLittle, hasScrolledMuch]);
 
   const exampleEvent = {
+    img: '/assets/community-bg.webp',
     title: 'Lightning Talks @ Maria Pandora',
     location: 'Palacio',
     ratings: {
-      rating: 4.3,
+      rating: 4.7,
       count: 313,
     },
     details: `<p>
@@ -58,7 +68,7 @@ export function CommunityPage() {
       { name: 'Achi J' },
     ],
     ratings: {
-      rating: 4.3,
+      rating: 4.7,
       count: 133,
       eventsCount: 14,
     }
@@ -72,41 +82,12 @@ export function CommunityPage() {
     { ...exampleEvent, dateLabels: ['Apr 01, 2025', 'Tuesday, 7:10pm'] },
   ];
 
-  return (<>
+  return (<div className='community-page'>
     <div className='page-bg'>
       <div className='page-bg__solid'></div>
       <div className='page-bg__gradient'></div>
     </div>
-    <header className='header-wrapper'>
-    {/* <header className={`header-wrapper${!!hasScrolled ? ' has-border' : ''}`}> */}
-      <div className='header-container'>
-        <a href='/' className='header-logo__link'>
-          <div className='header-logo'></div>
-        </a>
-        <div className='header-right'>
-          <a
-            href='/events'
-            className='header__explore-events gm-link gm-animated header-link'
-            style={{ height: '1.5rem' }}
-          >
-            <span className='gm-link__label'>Explore Events</span>
-            <span className='gm-link__icon'>
-              <svg style={{ width: '1rem', height: '1rem', verticalAlign: 'middle' }} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M7 17 17 7M7 7h10v10"></path>
-              </svg>
-            </span>
-          </a>
-          <a
-            href='/sign-in'
-            className='header__sign-in gm-link-btn gm-animated header-link-btn'
-          >
-            <span className='gm-link-btn__label'>
-              Sign In
-            </span>
-          </a>
-        </div>
-      </div>
-    </header>
+    <PageHeader isSticky={true}/> {/* isSubtle={!hasScrolledLittle} */}
     <section className='section-container community-intro'>
       <div className='width-container columns-layout'>
         <div className='community-intro__img-container column-main'>
@@ -146,7 +127,7 @@ export function CommunityPage() {
           </div>
           <a href='/' className='gm-link-btn gm-primary gm-animated community-intro__primary-btn'>
             <span className='gm-link-btn__label'>
-              Join for updates
+              Follow for updates
             </span>
           </a>
         </div>
@@ -164,7 +145,7 @@ export function CommunityPage() {
         <div className='community-menu__actions-container column-right'>
           <a href='/' className='gm-link-btn gm-primary gm-animated community-menu__primary-btn'>
             <span className='gm-link-btn__label'>
-              Join for updates
+              Follow for updates
             </span>
             {/* Follow, Subscribe, Join this group, Join community, [Subscribe] to future events, Follow future event, Join this community */}
           </a>
@@ -189,9 +170,9 @@ export function CommunityPage() {
             </div>
           </div>
           <div className='events-section'>
-            <div className='section__title-container'>
+            <div className='section-container__title'>
               <h2>Upcoming Events ({events.length})</h2>
-              <a href='#' className='gm-link gm-animated'>View all</a>
+              <a href='#' className='gm-link gm-animated'>See all events</a>
             </div>
 
             <div className='events-container'>
@@ -217,7 +198,7 @@ export function CommunityPage() {
                     <div className='event-card__inner'>
                       <div className='event-card__cover-container'>
                         <div className='event-card__img-wrapper'>
-                          <img className='event-card__img' src='/assets/community-bg.webp'/>
+                          <img className='event-card__img' src={event.img} />
                         </div>
                         <div className='event-card__cover-details-container'>
                           <h3 className='event-card__cover-title'>
@@ -238,7 +219,7 @@ export function CommunityPage() {
                               <IconRatings className='gm-icon gm-icon-ratings' />
                               <div className='event-card__cover-attribute-label'>
                                 {`${event.ratings.rating} / 5 (from ${event.ratings.count} ratings)`}
-                                {/* 4.3 / 5 (313 ratings) */}
+                                {/* 4.7 / 5 (313 ratings) */}
                               </div>
                             </div>
                           </div>
@@ -308,9 +289,9 @@ export function CommunityPage() {
               </div>
             </div>
 
-            <div className='section__title-container'>
+            <div className='section-container__title'>
               <h2>Members ({community.members.count})</h2>
-              <a href='#' className='gm-link gm-animated'>View all</a>
+              <a href='#' className='gm-link gm-animated'>See all members</a>
             </div>
             <a href='#' className='members-container'>
               {community.members.profiles.slice(0, 15).map(profile => (
@@ -324,16 +305,8 @@ export function CommunityPage() {
         </div>
       </div>
     </section>
-    <footer className='width-container footer-wrapper'>
-      <div className='footer-container'>
-        <a href='#' className='footer-link gm-link-btn gm-animated'>
-          <div className='footer-link__label'>
-            Create your own events @gentle
-          </div>
-        </a>
-      </div>
-    </footer>
-  </>);
+    <PageFooter />
+  </div>);
 }
 
 /*

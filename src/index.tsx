@@ -4,6 +4,7 @@ import './pages/index.css';
 import {
   CommunityPage,
   EventPage,
+  HomePageNew,
 } from './pages';
 
 createRoot(document.getElementById('root')!).render(
@@ -17,10 +18,13 @@ function getPage(pathname: string) {
 
   switch (pathnameKey) {
     case '':
-    case 'community': {
+    case 'home-ui': {
+      return <HomePageNew />
+    }
+    case 'community-ui': {
       return <CommunityPage />
     }
-    case 'event': {
+    case 'event-ui': {
       return <EventPage />
     }
     default: {
