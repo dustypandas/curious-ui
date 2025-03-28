@@ -10,13 +10,13 @@ export function PageHeader(props: PageHeaderProps) {
   return (<header className={`header-wrapper gm-animated${props.isSubtle ? ' is-subtle' : ''}${props.isSticky ? ' is-sticky' : ''}`}>
     {/* <header className={`header-wrapper${!!hasScrolled ? ' has-border' : ''}`}> */}
     <div className='header-container'>
-      <a href='/' className='header-logo__link'>
+      <a href='./home-ui' className='header-logo__link'>
         <div className='header-logo'></div>
       </a>
       <div className='header-right'>
         {!props.hideExploreEvents && (
           <a
-            href='/events'
+            href='#'
             className='header__explore-events gm-link gm-animated header-link'
             style={{ height: '1.5rem' }}
           >
@@ -29,7 +29,7 @@ export function PageHeader(props: PageHeaderProps) {
           </a>
         )}
         <a
-          href='/sign-in'
+          href='#'
           className='header__sign-in gm-link-btn gm-animated header-link-btn'
         >
           <span className='gm-link-btn__label'>

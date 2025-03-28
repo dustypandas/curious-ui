@@ -30,7 +30,7 @@ export function CommunityPage() {
   }, [hasScrolledLittle, hasScrolledMuch]);
 
   const exampleEvent = {
-    img: '/assets/community-bg.webp',
+    img: './assets/community-bg.webp',
     title: 'Lightning Talks @ Maria Pandora',
     location: 'Palacio',
     ratings: {
@@ -45,9 +45,9 @@ export function CommunityPage() {
               </p>`,
     attendees: {
       profiles: [
-        '/assets/member-thumb-1.avif',
-        '/assets/member-thumb-2.webp',
-        '/assets/member-thumb-3.webp',
+        './assets/member-thumb-1.avif',
+        './assets/member-thumb-2.webp',
+        './assets/member-thumb-3.webp',
       ],
       count: 27,
     },
@@ -93,7 +93,7 @@ export function CommunityPage() {
         <div className='community-intro__img-container column-main'>
           <img
             className='community-intro__img'
-            src='/assets/community-bg.webp'
+            src='./assets/community-bg.webp'
           />
         </div>
         <div className='community-intro__info-container column-right'>
@@ -125,7 +125,7 @@ export function CommunityPage() {
               </div>
             </div>
           </div>
-          <a href='/' className='gm-link-btn gm-primary gm-animated community-intro__primary-btn'>
+          <a href='#' className='gm-link-btn gm-primary gm-animated community-intro__primary-btn'>
             <span className='gm-link-btn__label'>
               Follow for updates
             </span>
@@ -139,11 +139,10 @@ export function CommunityPage() {
           <a href='#' className='gm-link gm-animated community-menu__link'>About</a>
           <a href='#' className='gm-link gm-animated community-menu__link'>Events</a>
           <a href='#' className='gm-link gm-animated community-menu__link'>Members</a>
-          {/* <a href='/' className='gm-link gm-animated community-menu__link'>Photos</a> */}
           <a href='#' className='gm-link gm-animated community-menu__link'>Disussions</a>
         </div>
         <div className='community-menu__actions-container column-right'>
-          <a href='/' className='gm-link-btn gm-primary gm-animated community-menu__primary-btn'>
+          <a href='#' className='gm-link-btn gm-primary gm-animated community-menu__primary-btn'>
             <span className='gm-link-btn__label'>
               Follow for updates
             </span>
@@ -194,7 +193,7 @@ export function CommunityPage() {
                       <div className='event-item__timeline-dot'></div>
                     </div>
                   </div>
-                  <a href='/event-ui' className='event-card gm-animated'>
+                  <a href='./event-ui' className='event-card gm-animated'>
                     <div className='event-card__inner'>
                       <div className='event-card__cover-container'>
                         <div className='event-card__img-wrapper'>

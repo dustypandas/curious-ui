@@ -20,7 +20,7 @@ export function HomePageNew() {
   }, [hasScrolledLittle]);
 
   const exampleEvent = {
-    img: '/assets/community-bg.webp',
+    img: './assets/community-bg.webp',
     title: 'Lightning Talks @ Maria Pandora',
     location: 'Palacio',
     ratings: {
@@ -35,9 +35,9 @@ export function HomePageNew() {
               </p>`,
     attendees: {
       profiles: [
-        '/assets/member-thumb-1.avif',
-        '/assets/member-thumb-2.webp',
-        '/assets/member-thumb-3.webp',
+        './assets/member-thumb-1.avif',
+        './assets/member-thumb-2.webp',
+        './assets/member-thumb-3.webp',
       ],
       count: 27,
     },
@@ -122,7 +122,7 @@ export function HomePageNew() {
         </div>
         <div className='events-section__events-container'>
           {events.map(event => (
-            <a href='/event-ui' className='event-item event-card'>
+            <a href='./event-ui' className='event-item event-card'>
               {/* <div className='event-item__img-wrapper'> */}
               <img
                 className='event-item__img'

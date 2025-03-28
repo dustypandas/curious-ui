@@ -32,17 +32,17 @@ export function EventPage() {
     },
     attendees: {
       profiles: [
-        '/assets/member-thumb-1.avif',
-        '/assets/member-thumb-2.webp',
-        '/assets/member-thumb-3.webp',
-        '/assets/member-thumb-1.avif',
-        '/assets/member-thumb-2.webp',
+        './assets/member-thumb-1.avif',
+        './assets/member-thumb-2.webp',
+        './assets/member-thumb-3.webp',
+        './assets/member-thumb-1.avif',
+        './assets/member-thumb-2.webp',
       ],
       count: 27,
     },
     community: {
       name: 'Polylogue',
-      img: '/assets/community-bg.webp',
+      img: './assets/community-bg.webp',
     },
   };
 
@@ -78,7 +78,7 @@ export function EventPage() {
               </h3>
             </div>
             <div className='event-community__container'>
-              <a href='/community-ui' className='event-community__header-row gm-link-dark'>
+              <a href='./community-ui' className='event-community__header-row gm-link-dark'>
                 <img
                   className='event-community__header-img'
                   src={event.community.img}
