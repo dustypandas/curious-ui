@@ -26,17 +26,22 @@
       color: var(--secondary-color-alpha);
       font-weight: 400;
     }
+    h1, h2 {
+      max-width: 32rem;
+    }
   }
   .banner-section__container {
     padding: 5rem 1rem 3rem;
   }
   .banner-section__actions-container {
-    margin-top: 3rem;
+    margin-top: 5rem;
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
 
     .gm-link-btn {
+      font-size: var(--font-size-base);
+      line-height: var(--font-size-base);
       /* min-width: 9rem;
       min-height: 3.5rem; */
       align-items: center;
@@ -55,6 +60,7 @@
     gap: 1.25rem;
     /* justify-content: space-between; */
   }
+  .communities-section__bottom-link,
   .events-section__bottom-link {
     padding-top: 1rem;
     display: flex;
@@ -78,21 +84,24 @@
       display: none;
     }
   }
-  .event-item__img-wrapper {
+  /* .event-item__img-wrapper {
     position: relative;
     pointer-events: none;
-    /* width: 160px;
-    height: 160px; */
     background: #112c590a;
     overflow: hidden;
-    border-radius: 0.5rem;
-  }
+  } */
   .event-item__img {
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: #ddd;
+    aspect-ratio: 16/9;
     object-fit: cover;
     object-position: center center;
-    background-color: #ddd;
-    width: 100%;
-    aspect-ratio: 16/9;
+  }
+  .event-item__details-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
   .event-item__title {
     margin: 0.5rem 0 0rem;
@@ -137,12 +146,9 @@
   .event-item__pricing {
     color: var(--tertiary-color-alpha);
   }
-  /* .event-item__icon-datetime {
-    margin-left: 0;
-  } */
-  /* .event-item__icon-members {
-
-  } */
+  .event-item__pricing {
+    display: none; /* for now */
+  }
 }
 
 /* experimental */
@@ -159,7 +165,7 @@
       max-width: 880px;
     }
     .event-item {
-      &:last-of-type {
+      &:last-of-type { /* show 9 instead of 8 */
         display: flex;
       }
     }
@@ -182,7 +188,28 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 600px) {
   /* single column */
-  .home-page {}
+  .home-page {
+    .banner-section__actions-container {
+      flex-direction: column;
+      gap: 0.75rem
+    }
+    .event-item {
+      width: 100%;
+      display: flex;
+      flex-direction:row-reverse;
+
+      &:nth-of-type(n+7) { /* show max 6 items */
+        display: none;
+      }
+    }
+    .event-item__img {
+      width: 100px;
+      height:100px;
+    }
+    .event-item__title {
+      margin: 0;
+    }
+  }
 }

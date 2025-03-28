@@ -4,7 +4,6 @@ import IconRatings from '../assets/icon-star.svg?react';
 import IconDatetime from '../assets/icon-calendar-outline.svg?react';
 import IconMembers from '../assets/icon-group-outline.svg?react';
 import IconTicket from '../assets/icon-ticket-outline.svg?react';
-import IconDiagonalArrow from '../assets/_icon-diagonal-arrow.svg?react';
 import './home-page-new.css';
 
 export function HomePageNew() {
@@ -74,22 +73,33 @@ export function HomePageNew() {
             and events of international<br/>
             residents in Madrid.
           </h1> */}
-          <h1>
-            A place for finding recurring<br/>
+          {/* <h1>
+            A place for finding recurrent
             events with community
+          </h1> */}
+          {/* <h1>
+            A place for finding meaningful
+            communities with events
+          </h1> */}
+          {/* <h1>
+            A home of meaningful
+            communities with events
+          </h1> */}
+          <h1>
+            A home of delightful
+            communities with events
+            {/* welcoming, meaningful, inspiring, colourful, eclectic, nourishing, diverse, unexpected, genuine, */}
           </h1>
           <h2>
             for international residents in Madrid.
           </h2>
           <div className='banner-section__actions-container'>
             <a href='#' className='gm-link-btn gm-primary gm-aniamted'>
-              <div>Join an event</div>
+              Join an event
             </a>
             <a href='#' className='gm-link-btn gm-secondary gm-aniamted'>
-              <div>
-                Find a community
-                {/* Suggest a community */}
-              </div>
+              Find a community
+              {/* Suggest a community */}
             </a>
           </div>
           {/* <p>
@@ -99,6 +109,7 @@ export function HomePageNew() {
         </div>
       </div>
     </div>
+
 
     <div className='width-container'>
       <div className='section-container events-section'>
@@ -111,36 +122,38 @@ export function HomePageNew() {
         </div>
         <div className='events-section__events-container'>
           {events.map(event => (
-            <div className='event-item event-card'>
-              <div className='event-item__img-wrapper'>
-                <img
-                  className='event-item__img'
-                  src={event.img}
-                />
-              </div>
-              <h3 className='event-item__title'>
-                {event.title}
-              </h3>
-              <div className='event-item__attribute-row event-item__community'>
-                4.7
-                <IconRatings className='gm-icon gm-icon-ratings event-item__icon-ratings' />
-                &nbsp;• by <strong>{event.community}</strong>
-              </div>
-              <div className='event-item__attribute-row event-item__datetime'>
-                <IconDatetime className='gm-icon gm-icon-datetime event-item__icon-datetime' />
-                {event.dateLabels[0]} • {event.dateLabels[1]}
-              </div>
-              <div className='event-item__row-with-columns'>
-                <div className='event-item__attribute-row event-item__attendance'>
-                  <IconMembers className='gm-icon gm-icon-members event-item__icon-members' />
-                  {event.attendees.count} going
+            <a href='/event-ui' className='event-item event-card'>
+              {/* <div className='event-item__img-wrapper'> */}
+              <img
+                className='event-item__img'
+                src={event.img}
+              />
+              {/* </div> */}
+              <div className='event-item__details-container'>
+                <h3 className='event-item__title'>
+                  {event.title}
+                </h3>
+                <div className='event-item__attribute-row event-item__community'>
+                  4.7
+                  <IconRatings className='gm-icon gm-icon-ratings event-item__icon-ratings' />
+                  &nbsp;• by <strong>{event.community}</strong>
                 </div>
-                <div className='event-item__attribute-row event-item__pricing'>
-                  <IconTicket className='gm-icon gm-icon-ticket event-item__icon-ticket' />
-                  Free
+                <div className='event-item__attribute-row event-item__datetime'>
+                  <IconDatetime className='gm-icon gm-icon-datetime event-item__icon-datetime' />
+                  {event.dateLabels[0]} • {event.dateLabels[1]}
+                </div>
+                <div className='event-item__row-with-columns'>
+                  <div className='event-item__attribute-row event-item__attendance'>
+                    <IconMembers className='gm-icon gm-icon-members event-item__icon-members' />
+                    {event.attendees.count} going
+                  </div>
+                  <div className='event-item__attribute-row event-item__pricing'>
+                    <IconTicket className='gm-icon gm-icon-ticket event-item__icon-ticket' />
+                    Free
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
         <div className='events-section__bottom-link'>
@@ -156,6 +169,9 @@ export function HomePageNew() {
           <a href='#' className='gm-link gm-animated'>
             See more communities
           </a>
+        </div>
+        <div className='communities-section__bottom-link'>
+          <a href='#' className='gm-link gm-animated'>See more communities</a>
         </div>
       </div>
       <div className='section-container about-section' style={{

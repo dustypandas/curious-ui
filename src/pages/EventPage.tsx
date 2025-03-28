@@ -78,7 +78,7 @@ export function EventPage() {
               </h3>
             </div>
             <div className='event-community__container'>
-              <a href='#' className='event-community__header-row gm-link-dark'>
+              <a href='/community-ui' className='event-community__header-row gm-link-dark'>
                 <img
                   className='event-community__header-img'
                   src={event.community.img}
@@ -325,8 +325,34 @@ export function EventPage() {
       </div>
     </section>
 
-    {/* <section className={`section-container event-actions-bottom${!!hasScrolledNearEnd ? '' : ' has-border'}`}>
+    <section className={`section-container event-actions-bottom${!!hasScrolledNearEnd ? '' : ' has-border'}`}>
       <div className='width-container columns-layout'>
+        <div className='event-actions__left-container'>
+          <div className='event-attendances__attendees'>
+            <div className='event-attendances__attendees-img-container'>
+              {event.attendees.profiles.map((img, index) => (
+                <img
+                  className='event-attendances__attendee-img'
+                  src={img}
+                  style={{zIndex: 20-index}}
+                />
+              ))}
+            </div>
+            <div className='event-attendances__attendees-label'>
+              {`+${event.attendees.count} others are going`}
+            </div>
+          </div>
+          <div className='event-actions__pricing-label'>
+            Free
+            {/* Private, €15 */}
+          </div>
+        </div>
+        <a href='#' className='gm-link-btn gm-primary event-actions-bottom__primary-btn'>
+          Join this event
+          {/* Join waitlist */}
+        </a>
+      </div>
+      {/* <div>
         <div style={{ flex: 1 }}>
           {event.title}
         </div>
@@ -336,8 +362,8 @@ export function EventPage() {
             Join waitlist
           </a>
         </div>
-      </div>
-    </section> */}
+      </div> */}
+    </section>
     <PageFooter />
   </div>);
 }

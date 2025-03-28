@@ -121,7 +121,7 @@ export function CommunityPage() {
               {/* <i className='gm-icon gm-icon-location' /> */}
               <div className='community-intro__attribute-label'>
                 {/* Palacio */}
-                {community.ratings.rating} / 5 (from {community.ratings.eventsCount} past events)
+                {community.ratings.rating} (from {community.ratings.eventsCount} past events)
               </div>
             </div>
           </div>
@@ -194,7 +194,7 @@ export function CommunityPage() {
                       <div className='event-item__timeline-dot'></div>
                     </div>
                   </div>
-                  <a href='#' className='event-card gm-animated'>
+                  <a href='/event-ui' className='event-card gm-animated'>
                     <div className='event-card__inner'>
                       <div className='event-card__cover-container'>
                         <div className='event-card__img-wrapper'>
@@ -218,8 +218,8 @@ export function CommunityPage() {
                               {/* <i className='gm-icon gm-icon-ratings' /> */}
                               <IconRatings className='gm-icon gm-icon-ratings' />
                               <div className='event-card__cover-attribute-label'>
-                                {`${event.ratings.rating} / 5 (from ${event.ratings.count} ratings)`}
-                                {/* 4.7 / 5 (313 ratings) */}
+                                {`${event.ratings.rating} (from ${event.ratings.count} ratings)`}
+                                {/* 4.7 (313 ratings) */}
                               </div>
                             </div>
                           </div>
@@ -291,7 +291,7 @@ export function CommunityPage() {
 
             <div className='section-container__title'>
               <h2>Members ({community.members.count})</h2>
-              <a href='#' className='gm-link gm-animated'>See all members</a>
+              <a href='#' className='gm-link gm-animated'>See members</a>
             </div>
             <a href='#' className='members-container'>
               {community.members.profiles.slice(0, 15).map(profile => (

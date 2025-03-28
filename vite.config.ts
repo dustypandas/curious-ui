@@ -10,4 +10,9 @@ export default defineConfig({
     tailwindcss(),
     svgr(),
   ],
+  base: '',
+  build: {
+    outDir: './docs',
+    emptyOutDir: true, // also necessary
+  }
 });

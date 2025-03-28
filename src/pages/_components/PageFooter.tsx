@@ -5,7 +5,7 @@ export function PageFooter() {
     <div className='footer-container'>
       <a href='#' className='footer-link gm-link-btn gm-animated'>
         <div className='footer-link__label'>
-          Find your own community with gentle
+          Create your own community with gentle.madrid
         </div>
       </a>
     </div>
