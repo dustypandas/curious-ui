@@ -53,7 +53,7 @@ export function EventPage() {
     <header className='header-wrapper subtle'>
     {/* <header className={`header-wrapper${!!hasScrolled ? ' has-border' : ''}`}> */}
       <div className='header-container'>
-        <a href='./home-ui' className='header-logo__link'>
+        <a href='#/home-ui' className='header-logo__link'>
           <div className='header-logo'></div>
         </a>
         <div className='header-right'>

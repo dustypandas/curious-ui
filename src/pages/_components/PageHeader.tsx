@@ -10,7 +10,7 @@ export function PageHeader(props: PageHeaderProps) {
   return (<header className={`header-wrapper gm-animated${props.isSubtle ? ' is-subtle' : ''}${props.isSticky ? ' is-sticky' : ''}`}>
     {/* <header className={`header-wrapper${!!hasScrolled ? ' has-border' : ''}`}> */}
     <div className='header-container'>
-      <a href='./home-ui' className='header-logo__link'>
+      <a href='#/home-ui' className='header-logo__link'>
         <div className='header-logo'></div>
       </a>
       <div className='header-right'>

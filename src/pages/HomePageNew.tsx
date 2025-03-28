@@ -122,7 +122,7 @@ export function HomePageNew() {
         </div>
         <div className='events-section__events-container'>
           {events.map(event => (
-            <a href='./event-ui' className='event-item event-card'>
+            <a href='#/event-ui' className='event-item event-card'>
               {/* <div className='event-item__img-wrapper'> */}
               <img
                 className='event-item__img'

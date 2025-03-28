@@ -78,7 +78,7 @@ export function EventPage() {
               </h3>
             </div>
             <div className='event-community__container'>
-              <a href='./community-ui' className='event-community__header-row gm-link-dark'>
+              <a href='#/community-ui' className='event-community__header-row gm-link-dark'>
                 <img
                   className='event-community__header-img'
                   src={event.community.img}

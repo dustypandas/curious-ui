@@ -1,5 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './pages/index.css';
 import {
   CommunityPage,
@@ -10,27 +11,14 @@ import {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {getPage(window.location.pathname)}
+    <HashRouter>
+      <Routes>
+        <Route path='/' element={<IndexPage />} />
+        <Route path='/home-ui' element={<HomePageNew />} />
+        <Route path='/community-ui' element={<CommunityPage />} />
+        <Route path='/event-ui' element={<EventPage />} />
+        {/* default invalid? */}
+      </Routes>
+    </HashRouter>
   </StrictMode>,
 )
-
-function getPage(pathname: string) {
-  const pathnameKey = pathname.split('/').pop();
-
-  switch (pathnameKey) {
-    case '':
-      return <IndexPage />
-    case 'home-ui': {
-      return <HomePageNew />
-    }
-    case 'community-ui': {
-      return <CommunityPage />
-    }
-    case 'event-ui': {
-      return <EventPage />
-    }
-    default: {
-      throw 'Invalid key';
-    }
-  }
-}
