@@ -31,17 +31,17 @@ export function EventPage() {
     },
     attendees: {
       profiles: [
-        './assets/member-thumb-1.avif',
-        './assets/member-thumb-2.webp',
-        './assets/member-thumb-3.webp',
-        './assets/member-thumb-1.avif',
-        './assets/member-thumb-2.webp',
+        './assets/member-achi.avif',
+        './assets/member-peter.webp',
+        './assets/member-maria.webp',
+        './assets/member-achi.avif',
+        './assets/member-peter.webp',
       ],
       count: 27,
     },
     community: {
       name: 'Polylogue',
-      img: './assets/community-bg.webp',
+      img: './assets/community-philosophy.webp',
     },
   };
 

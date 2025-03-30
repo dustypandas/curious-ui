@@ -22,6 +22,19 @@
     }
   }
 }
+.section-container__bottom-link {
+  padding: 1.5rem 0 2rem;
+  display: flex;
+  justify-content: center;
+
+  .gm-link {
+    color: var(--nav-link-color);
+
+    &:hover {
+      color: var(--nav-link-hover-color);
+    }
+  }
+}
 
 .event-card {
   display: block;
@@ -52,6 +65,13 @@
 
   .community-intro {
     padding: 1.25em 0;
+
+    .gm-icon-ratings {
+      color: var(--color-yellow-500);
+      display: inline-block;
+      /* font-size: 0.875em; */
+      transform: translateY(-1px);
+    }
   }
   .community-intro__title {
     padding-top: 1rem;
@@ -154,7 +174,7 @@
   .events-section {
     padding-top: 2em;
   }
-  .events-container {
+  .events-section__events-container {
     padding-top: 1em;
 
     .event-card {

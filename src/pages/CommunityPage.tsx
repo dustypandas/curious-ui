@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import IconMembers from '../assets/icon-group-outline.svg?react';
 import IconMember from '../assets/icon-user-outline.svg?react';
-import IconRatings from '../assets/icon-star-outline.svg?react';
+import IconRatings from '../assets/icon-star.svg?react';
 import IconLocation from '../assets/icon-map-marker-outline.svg?react';
 import IconContact from '../assets/icon-email-outline.svg?react';
 import './community-page.css';
@@ -9,6 +9,7 @@ import {
   PageFooter,
   PageHeader,
 } from './_components';
+import { communities, sampleFullEvent } from './_data';
 
 export function CommunityPage() {
   const [hasScrolledLittle, setHasScrolledLittle] = useState(false);
@@ -29,57 +30,13 @@ export function CommunityPage() {
     // add effect resize to set scroll distance based on header height
   }, [hasScrolledLittle, hasScrolledMuch]);
 
-  const exampleEvent = {
-    img: './assets/community-bg.webp',
-    title: 'Lightning Talks @ Maria Pandora',
-    location: 'Palacio',
-    ratings: {
-      rating: 4.7,
-      count: 313,
-    },
-    details: `<p>
-                5 Speakers, 5 minute presentations, 5 diverse topics! 🙌⚡️
-              </p>
-              <p>
-                Lightning Talks is a format where a number of speakers give <strong>5 minute presentations</strong> about <strong>any topic of their choosing</strong>, followed by 5 minutes of open questions.
-              </p>`,
-    attendees: {
-      profiles: [
-        './assets/member-thumb-1.avif',
-        './assets/member-thumb-2.webp',
-        './assets/member-thumb-3.webp',
-      ],
-      count: 27,
-    },
-  };
-
-  const community = {
-    name: 'Polylogue Madrid: share • learn • inspire',
-    members: {
-      profiles: [...Array(15).keys()].map(index => ({
-        id: index,
-        image: exampleEvent.attendees.profiles[index % 3],
-      })),
-      count: 812,
-    },
-    creators: [
-      { name: 'Peter C' },
-      { name: 'Maria M' },
-      { name: 'Achi J' },
-    ],
-    ratings: {
-      rating: 4.7,
-      count: 133,
-      eventsCount: 14,
-    }
-  };
-  const events = [
-    { ...exampleEvent, dateLabels: ['Jan 21, 2025', 'Tuesday, 7:10pm'] },
-    { ...exampleEvent, dateLabels: ['Feb 04, 2025', 'Tuesday, 7:10pm'] },
-    { ...exampleEvent, dateLabels: ['Feb 18, 2025', 'Tuesday, 7:10pm'] },
-    { ...exampleEvent, dateLabels: ['Mar 04, 2025', 'Tuesday, 7:10pm'] },
-    { ...exampleEvent, dateLabels: ['Mar 18, 2025', 'Tuesday, 7:10pm'] },
-    { ...exampleEvent, dateLabels: ['Apr 01, 2025', 'Tuesday, 7:10pm'] },
+  const communityData = communities.polylogue;
+  const eventsData = [
+    sampleFullEvent,
+    { ...sampleFullEvent, date: { ...sampleFullEvent.date, timelineLabels: ['Feb 018, 2025', 'Tuesday, 7:10pm'] } },
+    { ...sampleFullEvent, date: { ...sampleFullEvent.date, timelineLabels: ['Mar 04, 2025', 'Tuesday, 7:10pm'] } },
+    { ...sampleFullEvent, date: { ...sampleFullEvent.date, timelineLabels: ['Mar 18, 2025', 'Tuesday, 7:10pm'] } },
+    { ...sampleFullEvent, date: { ...sampleFullEvent.date, timelineLabels: ['Apr 01, 2025', 'Tuesday, 7:10pm'] } },
   ];
 
   return (<div className='community-page'>
@@ -93,35 +50,32 @@ export function CommunityPage() {
         <div className='community-intro__img-container column-main'>
           <img
             className='community-intro__img'
-            src='./assets/community-bg.webp'
+            src='./assets/community-philosophy.webp'
           />
         </div>
         <div className='community-intro__info-container column-right'>
           <h1 className='community-intro__title'>
-            {community.name}
+            {communityData.name}
           </h1>
           <div className='community-intro__attributes-container'>
             <div className='community-intro__attribute'>
               {/* <i className='gm-icon gm-icon-members' /> */}
               <IconMembers className='gm-icon gm-icon-members' />
               <div className='community-intro__attribute-label'>
-                {community.members.count} members
+                {communityData.members.count} followers
               </div>
             </div>
             <div className='community-intro__attribute'>
               {/* <i className='gm-icon icon-member'/> */}
               <IconMember className='gm-icon gm-icon-member' />
               <div className='community-intro__attribute-label'>
-                Organized by <b>{community.creators.slice(0, 1).pop()?.name}</b> and <b>{community.creators.length - 1} others</b>
+                Organized by {nameAndOthersLabel(communityData.organizers)}
               </div>
             </div>
             <div className='community-intro__attribute'>
-              {/* <i className='gm-icon gm-icon-ratings' /> */}
               <IconRatings className='gm-icon gm-icon-ratings' />
-              {/* <i className='gm-icon gm-icon-location' /> */}
               <div className='community-intro__attribute-label'>
-                {/* Palacio */}
-                {community.ratings.rating} (from {community.ratings.eventsCount} past events)
+                <strong>{communityData.ratings.rating}</strong> from {communityData.ratings.count} ratings
               </div>
             </div>
           </div>
@@ -159,33 +113,28 @@ export function CommunityPage() {
         <div className='column-main'>
           <div className='about-section'>
             <h2>Who we are</h2>
-            <div className='about-section__content'>
-              <p>
-                Polylogue is a community for meeting people who share diverse interests, eclectic curiosities, wayward stories and uncommon perspectives. 🎓📚💫
-              </p>
-              <p>
-                Come join us for fortnightly "Lightning Talks" - where a number of speakers give 5 minute presentations about any topic of their choosing, followed by 5 minutes of open questions.
-              </p>
-            </div>
+            <div className='about-section__content' dangerouslySetInnerHTML={{
+              __html: communityData.details,
+            }} />
           </div>
           <div className='events-section'>
             <div className='section-container__title'>
-              <h2>Upcoming Events ({events.length})</h2>
+              <h2>Upcoming Events ({eventsData.length})</h2>
               <a href='#' className='gm-link gm-animated'>See all events</a>
             </div>
 
-            <div className='events-container'>
-              {events.slice(0,3).map(event => (
+            <div className='events-section__events-container'>
+              {eventsData.slice(0,3).map(event => (
                 <div className='event-item'>
                   <div className='event-item__timeline-line'></div>
                   <div className='event-item__timeline-title'>
                     <div className='event-item__timeline-datetime'>
                       <span className='event-item__timeline-part-date'>
-                        {event.dateLabels[0]}
+                        {event.date.timelineLabels[0]}
                         {/* Jan 12, 2025 */}
                       </span>
                       <span className='event-item__timeline-part-time'>
-                        {event.dateLabels[1]}
+                        {event.date.timelineLabels[1]}
                         {/* Sunday, 7:10pm */}
                       </span>
                     </div>
@@ -206,19 +155,20 @@ export function CommunityPage() {
                           </h3>
                           <div className='event-card__cover-attributes'>
                             <div className='event-card__cover-attribute-row'>
+                              {/* <i className='gm-icon gm-icon-ratings' /> */}
+                              <IconMember className='gm-icon gm-icon-member' />
+                              <div className='event-card__cover-attribute-label'>
+                                hosted by {nameAndOthersLabel(event.hosts)}
+                                {/* {`${event.ratings.rating} (from ${event.ratings.count} ratings)`} */}
+                                {/* 4.7 (313 ratings) */}
+                              </div>
+                            </div>
+                            <div className='event-card__cover-attribute-row'>
                               {/* <i className='gm-icon gm-icon-location' /> */}
                               <IconLocation className='gm-icon gm-icon-location' />
                               <div className='event-card__cover-attribute-label'>
                                 {event.location}
                                 {/* Palacio */}
-                              </div>
-                            </div>
-                            <div className='event-card__cover-attribute-row'>
-                              {/* <i className='gm-icon gm-icon-ratings' /> */}
-                              <IconRatings className='gm-icon gm-icon-ratings' />
-                              <div className='event-card__cover-attribute-label'>
-                                {`${event.ratings.rating} (from ${event.ratings.count} ratings)`}
-                                {/* 4.7 (313 ratings) */}
                               </div>
                             </div>
                           </div>
@@ -237,10 +187,10 @@ export function CommunityPage() {
                       <div className='event-card__attendance-container'>
                         <div className='event-card__attendees'>
                           <div className='event-card__attendees-img-container'>
-                            {event.attendees.profiles.map((img, index) => (
+                            {event.attendees.profiles.map((profile, index) => (
                               <img
                                 className='event-card__attendee-img'
-                                src={img}
+                                src={profile.img}
                                 style={{zIndex: 5-index}}
                               />
                             ))}
@@ -265,6 +215,15 @@ export function CommunityPage() {
                 </div>
               ))}
             </div>
+            <div className='section-container__bottom-link'>
+              <a href='#' className='gm-link gm-animated'>See all events</a>
+            </div>
+          </div>
+          <div className='past-events-section'>
+            <div className='section-container__title'>
+              <h2>Past Events ({communityData.ratings.eventsCount})</h2>
+              <a href='#' className='gm-link gm-animated'>See past events</a>
+            </div>
           </div>
         </div>
         <div className='community-details__sidebar column-right'>
@@ -273,11 +232,11 @@ export function CommunityPage() {
             <div className='organizers-container'>
               <img
                 className='member-item__member-img'
-                src={community.members.profiles.slice(0, 1).pop()?.image}
+                src={communityData.organizers.slice(0, 1).pop()?.img}
               />
               <div className='organizers-details'>
                 <div className='organizers-details__label'>
-                  <b>{community.creators.slice(0, 1).pop()?.name}</b> and <b>{community.creators.length - 1} others</b>
+                  {nameAndOthersLabel(communityData.organizers)}
                 </div>
                 <a href='#' className='organizers-details__contact gm-animated'>
                   <IconContact className='gm-icon gm-icon-contact' />
@@ -289,14 +248,14 @@ export function CommunityPage() {
             </div>
 
             <div className='section-container__title'>
-              <h2>Members ({community.members.count})</h2>
-              <a href='#' className='gm-link gm-animated'>See members</a>
+              <h2>Followers ({communityData.members.count})</h2>
+              <a href='#' className='gm-link gm-animated'>See followers</a>
             </div>
             <a href='#' className='members-container'>
-              {community.members.profiles.slice(0, 15).map(profile => (
+              {communityData.members.profiles.slice(0, 15).map(profile => (
                 <img
                   className='member-item__member-img'
-                  src={profile.image}
+                  src={profile.img}
                 />
               ))}
             </a>
@@ -340,3 +299,25 @@ export function CommunityPage() {
     "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
   </p>
 */
+
+function nameAndOthersLabel(membersArray: { name: string }[]) {
+  return (
+    <>
+      <strong>{membersArray.slice(0, 1).pop()?.name}</strong>
+      {
+        membersArray.length > 1
+          ? (
+            <>
+              {/* &nbsp;and <strong>
+                {membersArray.length - 1} {membersArray.length > 2 ? 'others' : 'other'}
+              </strong> */}
+              &nbsp;and <span>
+                {membersArray.length - 1} {membersArray.length > 2 ? 'others' : 'other'}
+              </span>
+            </>
+          )
+          : ''
+      }
+    </>
+  );
+}

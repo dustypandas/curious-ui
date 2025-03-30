@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import IconLocation from '../assets/icon-map-marker-outline.svg?react';
+import IconRatings from '../assets/icon-star.svg?react';
 import { PageFooter, PageHeader } from './_components';
 import './event-page.css';
+import { sampleFullEvent } from './_data';
 
 export function EventPage() {
   const [hasScrolledABit, setHasScrolledABit] = useState(false);
@@ -23,27 +25,22 @@ export function EventPage() {
     // add effect resize to set scroll distance based on header height
   }, [hasScrolledABit, hasScrolledNearEnd]);
 
-  const event = {
-    title: 'Lightning Talks @ Maria Pandora',
-    location: 'Palacio',
-    ratings: {
-      rating: 4.7,
-      count: 313,
-    },
-    attendees: {
-      profiles: [
-        './assets/member-thumb-1.avif',
-        './assets/member-thumb-2.webp',
-        './assets/member-thumb-3.webp',
-        './assets/member-thumb-1.avif',
-        './assets/member-thumb-2.webp',
-      ],
-      count: 27,
-    },
-    community: {
-      name: 'Polylogue',
-      img: './assets/community-bg.webp',
-    },
+  // extra long content to show scroll effect for events page
+  const eventData = {
+    ...sampleFullEvent,
+    details: `${sampleFullEvent.details}
+      <h3>
+        The standard Lorem Ipsum passage, used since the 1500s
+      </h3>
+      <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      </p>
+      <h3>
+        Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+      </h3>
+      <p>
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+      </p>`
   };
 
   return (<div className='event-page'>
@@ -59,20 +56,20 @@ export function EventPage() {
             <div className='event-img__wrapper-glow'>
               <img
                 className='event-img__img'
-                src={event.community.img}
+                src={eventData.img}
               />
             </div>
             <div className='event-img__wrapper'>
               <img
                 className='event-img__img'
-                src={event.community.img}
+                src={eventData.img}
               />
             </div>
           </div>
           <div className='event-sidebar__sticky'>
             <div className={`event-sidebar__event-title gm-animated${hasScrolledABit ? ' is-visible' : ''}`}>
               <h3>
-                {event.title}
+                {eventData.title}
                 {/* TODO click to scroll to top */}
                 {/* if double line, still center in line with top bar */}
               </h3>
@@ -80,50 +77,43 @@ export function EventPage() {
             <div className='event-community__container'>
               <a href='#/community-ui' className='event-community__header-row gm-link-dark'>
                 <img
-                  className='event-community__header-img'
-                  src={event.community.img}
+                  className='event-community__title-img'
+                  src={eventData.community.img}
                 />
-                <div className='event-community__header-title-container'>
-                  <div className='event-community__header-title-label'>
+                <div className='event-community__title-container'>
+                  <div className='event-community__title-label'>
                     Created by
                   </div>
-                  <div className='event-community__header-title-name gm-animated gm-link__label'>
-                    {event.community.name}
+                  {/* <div className='event-community__title-name-row'> */}
+                  <div className='event-community__title-name gm-animated gm-link__label'>
+                    {eventData.community.name}
                   </div>
+                    {/* <div className='event-community__title-ratings'>
+                      {event.ratings.rating}<IconRatings className='gm-icon gm-icon-ratings' />
+                    </div> */}
+                  {/* </div> */}
                 </div>
               </a>
-              <div className='event-community__about'>
-                <p>
-                  Polylogue is a community for meeting people who share diverse interests, eclectic curiosities, wayward stories and uncommon perspectives. 🎓📚💫
-                </p>
-                <p>
-                  Come join us for fortnightly "Lightning Talks" - where a number of speakers give 5 minute presentations about any topic of their choosing, followed by 5 minutes of open questions.
-                </p>
-              </div>
+              <div className='event-community__about' dangerouslySetInnerHTML={{
+                __html: eventData.community.details,
+              }} />
             </div>
             <div className='event-sidebar__section-container'>
               <div className='event-sidebar__section-title'>
                 Hosted by
               </div>
               <div className='event-hosts__hosts-container'>
-                <a href='#' className='event-hosts__host-row gm-link-dark'>
-                  <img
-                    className='event-hosts__host-img'
-                    src={event.attendees.profiles[0]}
-                  />
-                  <div className='event-hosts__host-label gm-link__label gm-animated'>
-                    Achi J
-                  </div>
-                </a>
-                <a href='#' className='event-hosts__host-row gm-link-dark'>
-                  <img
-                    className='event-hosts__host-img'
-                    src={event.attendees.profiles[1]}
-                  />
-                  <div className='event-hosts__host-label gm-link__label gm-animated'>
-                    Peter C
-                  </div>
-                </a>
+                {eventData.hosts.map(host => (
+                  <a href='#' className='event-hosts__host-row gm-link-dark'>
+                    <img
+                      className='event-hosts__host-img'
+                      src={host.img}
+                    />
+                    <div className='event-hosts__host-label gm-link__label gm-animated'>
+                      {host.name}
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
             {/* <div className='event-sidebar__section-container'>
@@ -159,20 +149,20 @@ export function EventPage() {
         <div className='event-content-main column-main'>
           <div className='event-intro'>
             <h1 className='event-intro__title'>
-              {event.title}
+              {eventData.title}
             </h1>
             <div className='event-intro__attributes'>
               <div className='event-intro__attribute-row'>
                 <div className='event-intro__icon-container'>
-                  <div className='event-intro__icon-calendar-month'>Mar</div>
-                  <div className='event-intro__icon-calendar-date'>23</div>
+                  <div className='event-intro__icon-calendar-month'>{eventData.date.pageLabels.monthShort}</div>
+                  <div className='event-intro__icon-calendar-date'>{eventData.date.pageLabels.dateShort}</div>
                 </div>
                 <div className='event-intro__attribute-details-container'>
                   <div className='event-intro__attribute-details-row'>
-                    Saturday, March 8, 2025
+                    {eventData.date.pageLabels.dateLong}
                   </div>
                   <div className='event-intro__attribute-details-row'>
-                    12:00 PM - 1:00 PM
+                    {eventData.date.pageLabels.timeLong}
                   </div>
                 </div>
               </div>
@@ -185,7 +175,7 @@ export function EventPage() {
                     Exact address visible for attendees
                   </div>
                   <div className='event-intro__attribute-details-row'>
-                    Palacio, Madrid
+                    {eventData.location}, Madrid
                   </div>
                 </div>
               </div>
@@ -202,16 +192,16 @@ export function EventPage() {
                 <div className='event-actions__left-container'>
                   <div className='event-attendances__attendees'>
                     <div className='event-attendances__attendees-img-container'>
-                      {event.attendees.profiles.map((img, index) => (
+                      {eventData.attendees.profiles.map((profile, index) => (
                         <img
                           className='event-attendances__attendee-img'
-                          src={img}
+                          src={profile.img}
                           style={{zIndex: 20-index}}
                         />
                       ))}
                     </div>
                     <div className='event-attendances__attendees-label'>
-                      {`+${event.attendees.count} others are going`}
+                      {`+${eventData.attendees.count} others are going`}
                     </div>
                   </div>
                   <div className='event-actions__pricing-label'>
@@ -219,7 +209,7 @@ export function EventPage() {
                     {/* Private, €15 */}
                   </div>
                 </div>
-                <a href='#' className='gm-link-btn gm-primary event-actions__primary-btn'>
+                <a href='#' className='gm-link-btn gm-primary gm-animated event-actions__primary-btn'>
                   Join event
                   {/* Join waitlist */}
                 </a>
@@ -279,47 +269,9 @@ export function EventPage() {
               About event
             </div> */}
             <h3>About event</h3>
-            <div className='event-description__content'>
-              <p>
-                5 Speakers, 5 minute presentations, 5 diverse topics! 🙌⚡️
-              </p>
-              <p>
-                Lightning Talks is a format where a number of speakers give <b>5 minute presentations</b> about <b>any topic of their choosing</b>, followed by 5 minutes of open questions.
-              </p>
-              <p>
-                There will be <b>5-6 talks starting at 19:30</b>, followed by drinks and social.
-              </p>
-              <p>
-                Come join us to hear and discuss some unexpected ideas across surprising topics, broaden our horizons and meet interesting people.
-              </p>
-              <p>
-                You can find photos from some of our recent events here:<br/>
-                <a href='#'><b>https://www.instagram.com/polylogue_madrid</b></a>
-              </p>
-              <p>
-                or sign up here if you'd like to give a talk at our next event:<br/>
-                <a href='#'><b>https://forms.gle/Nx2847ZENMxkBMut8</b></a>
-              </p>
-              {/* Other content */}
-              <h3>
-                The standard Lorem Ipsum passage, used since the 1500s
-              </h3>
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p>
-              <h3>
-                Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
-              </h3>
-              <p>
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-              </p>
-              {/* <h3>
-                1914 translation by H. Rackham
-              </h3>
-              <p>
-                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-              </p> */}
-            </div>
+            <div className='event-description__content' dangerouslySetInnerHTML={{
+              __html: eventData.details,
+            }} />
           </div>
         </div>
       </div>
@@ -330,16 +282,16 @@ export function EventPage() {
         <div className='event-actions__left-container'>
           <div className='event-attendances__attendees'>
             <div className='event-attendances__attendees-img-container'>
-              {event.attendees.profiles.map((img, index) => (
+              {eventData.attendees.profiles.map((profile, index) => (
                 <img
                   className='event-attendances__attendee-img'
-                  src={img}
+                  src={profile.img}
                   style={{zIndex: 20-index}}
                 />
               ))}
             </div>
             <div className='event-attendances__attendees-label'>
-              {`+${event.attendees.count} others are going`}
+              {`+${eventData.attendees.count} others are going`}
             </div>
           </div>
           <div className='event-actions__pricing-label'>
@@ -347,7 +299,7 @@ export function EventPage() {
             {/* Private, €15 */}
           </div>
         </div>
-        <a href='#' className='gm-link-btn gm-primary event-actions-bottom__primary-btn'>
+        <a href='#' className='gm-link-btn gm-primary gm-animated event-actions-bottom__primary-btn'>
           Join this event
           {/* Join waitlist */}
         </a>
@@ -357,7 +309,7 @@ export function EventPage() {
           {event.title}
         </div>
         <div>
-          <a href='#' className='gm-link-btn gm-primary event-actions__primary-btn'>
+          <a href='#' className='gm-link-btn gm-primary gm-animated event-actions__primary-btn'>
             Join event
             Join waitlist
           </a>

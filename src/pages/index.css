@@ -40,6 +40,9 @@ html, body {
 b, strong {
   font-weight: 500;
 }
+.gm-color-secondary {
+  color: var(--secondary-color-alpha);
+}
 .gm-link {
   display: flex;
   gap: 0.25rem; /* for icons */
