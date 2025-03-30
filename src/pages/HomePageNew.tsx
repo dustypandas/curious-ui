@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PageFooter, PageHeader } from './_components';
 import IconRatings from '../assets/icon-star.svg?react';
-import IconNewRatings from '../assets/icon-star-outline.svg?react';
+// import IconNewRatings from '../assets/icon-star-outline.svg?react';
 import IconDatetime from '../assets/icon-calendar-outline.svg?react';
 import IconMembers from '../assets/icon-group-outline.svg?react';
 import IconTicket from '../assets/icon-ticket-outline.svg?react';
