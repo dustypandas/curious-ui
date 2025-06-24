@@ -48,34 +48,40 @@ export function HomePageNew() {
       <div className='width-container'>
         <div className='banner-section__container'>
           <h2>
-            Welcome to gentle 😌👋
+            Welcome to Socially 😌👋
           </h2>
           {/* <h1>
             A place for finding recurrent
             events with community
           </h1> */}
           {/* <h1>
-            A place for finding meaningful
-            communities with events
+            A home of recurring
+            communities and events
           </h1> */}
           {/* <h1>
-            A home of meaningful
-            communities with events
+            A home of delightful
+            communities and events
           </h1> */}
           <h1>
-            A home of delightful
-            communities with events
-            {/* nourishing, meaningful, colourful, eclectic, diverse, unexpected, genuine, */}
+            A home of meaningful
+            communities and events
+            {/* nourishing, delightful, colourful, eclectic, diverse, unexpected, genuine, */}
           </h1>
           <h2>
             for international residents in Madrid.
           </h2>
+          {/* <p>
+            Let's create the
+            community we want
+            to be a part of,
+            together.
+          </p> */}
           <div className='banner-section__actions-container'>
             <a href='#' className='gm-link-btn gm-primary gm-animated'>
               Join an event
             </a>
             <a href='#' className='gm-link-btn gm-secondary gm-animated'>
-              Find a community
+              Find my people
               {/* Suggest a community */}
             </a>
           </div>
@@ -138,7 +144,9 @@ export function HomePageNew() {
     <div className='section-container communities-section placeholder-bg'>
       <div className='width-container'>
         <div className='section-container__title'>
-          <h2>Featured Communities</h2>
+          <h2>Common Interests</h2>
+          {/* various hashtags, number of followers, etc */}
+          {/* <h2>Featured Communities</h2> */}
           {/* <a href='#' className='gm-link gm-animated'>
             See more communities
           </a> */}
@@ -187,25 +195,51 @@ export function HomePageNew() {
         </div>
       </div>
     </div>
-    <div className='section-container about-section' style={{
-      height: '20rem',
-    }}>
+    <div className='section-container why-section'>
       <div className='width-container'>
         <div className='section-container__title'>
-          <h2>Why gentle.?</h2>
+          <h2>Why socially?</h2>
           {/* <a href='#' className='gm-link gm-animated'>
             Connect with us
           </a> */}
         </div>
-        <div className='about-section__content'>
-          <div>
-            All about community
+        <div className='why-section__content'>
+          <div className='why-section__item'>
+            <h3 className='why-section__item-title'>
+              Find your people
+            </h3>
+            <div className='why-section-item-content'>
+              <p>
+                Find meaningful connections and
+                community with other international
+                residents living in Madrid. ☀️
+              </p>
+            </div>
           </div>
-          <div>
-            Made by expats, for expats
+          <div className='why-section__item'>
+            <h3 className='why-section__item-title'>
+              By expats, for expats
+            </h3>
+            <div className='why-section-item-content'>
+              <p>
+                We are expats living in Madrid too!
+                Join us to building the kind of
+                communities we want to be a part of,
+                in our new home. 🦖
+              </p>
+            </div>
           </div>
-          <div>
-            Free basic membership, forever
+          <div className='why-section__item'>
+            <h3 className='why-section__item-title'>
+              Free for creators, forever
+            </h3>
+            <div className='why-section-item-content'>
+              <p>
+                Socially is free to use for creating
+                your own expat community here in
+                Madrid, forever 🙌
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -218,7 +252,7 @@ export function HomePageNew() {
           <h2>What other members are saying about gentle.?</h2>
         </div>
         <div className='about-section__content'>
-          gentle.madrid was founded by a small group of friends, all international residents with diverse interests, living in Madrid.
+          socially.madrid was founded by a small group of friends, all international residents with diverse interests, living in Madrid.
         </div>
       </div>
     </div> */}

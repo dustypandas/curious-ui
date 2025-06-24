@@ -190,6 +190,15 @@
     -webkit-line-clamp: 3;
     margin: 0 0.5rem 1rem;
   }
+
+  .why-section__content {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .why-section__item {
+    flex: 1;
+    text-align: center;
+  }
 }
 
 /* home page only */
@@ -238,9 +247,15 @@
   .home-page {
     .events-section,
     .communities-section,
-    .about-section {
+    .why-section {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
+    }
+    .banner-section__container {
+      padding-top: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
     }
     .banner-section__actions-container {
       flex-direction: column;
@@ -254,23 +269,32 @@
       gap: 1rem;
     }
     .event-item__img {
-      width: 100px;
-      height:100px;
+      width: 60px;
+      height: 60px;
     }
     .event-item__title,
     .community-item__name {
       margin: 0;
+      font-size: 1rem;
+    }
+    .event-item__community {
+      white-space: normal;
+    }
+    .event-item__attribute-row,
+    .community-item__attribute-row,
+    .community-item__ratings {
+      font-size: 0.875rem;
     }
 
     .community-item {
       flex-direction: row-reverse;
     }
     .community-item__img {
-      width: 140px;
-      height:140px;
+      width: 80px;
+      height: 80px;
     }
     .community-item__name,
-    .community-item__followers,
+    .community-item__ratings,
     .community-item__about {
       text-align: left;
     }

@@ -302,7 +302,7 @@ export function EventPage() {
       <div className='footer-container'>
         <a href='#' className='footer-link gm-link-btn gm-animated'>
           <div className='footer-link__label'>
-            Build your own community in Madrid @gentle
+            Build your own community in Madrid @socially
           </div>
         </a>
       </div>
